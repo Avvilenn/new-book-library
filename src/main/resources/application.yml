@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: book library
+logging:
+  level:
+    ROOT: INFO
+    strata: DEBUG
+    gaia: DEBUG
