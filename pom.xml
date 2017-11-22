@@ -6,7 +6,7 @@
     <artifactId>new-online-book-library</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <scm>
-        <connection>scm:git:git@github.com:Avvilenn/new-book-library.git</connection>
+        <connection>scm:git:https://github.com/Avvilenn/new-book-library.git</connection>
     </scm>
     <properties>
         <api.domain>online-book-library</api.domain>
