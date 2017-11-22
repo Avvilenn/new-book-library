@@ -14,12 +14,7 @@ public class HelloController {
     @RequestMapping(value = "/hello", method = GET)
     public String all() {
         LOG.info("REQUEST RECEIVED");
-        return "HELLO FROM ROUTING TEST 1";
+        return "THIS APPLICATION WORKS";
     }
 
-    @RequestMapping(value = "/hello", method = GET)
-    public String hello() {
-        LOG.info("REQUEST RECEIVED");
-        return "IT IS HELLO CONTROLLER FROM ROUTING TEST 1";
-    }
 }

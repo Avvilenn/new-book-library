@@ -3,69 +3,64 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>new.online.book.library</groupId>
     <artifactId>new-online-book-library</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <scm>
-        <connection>scm:git:https://github.com/Avvilenn/new-book-library.git</connection>
+        <connection>scm:git:git@github.com:Avvilenn/new-book-library.git</connection>
     </scm>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
     <properties>
-        <api.domain>online-book-library</api.domain>
-        <api.version>1</api.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
-       <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-           <version>1.5.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
 
-        <!-- test dependencies -->
-       <dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-           <version>4.3.10.RELEASE</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
-            <version>1.5.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
-        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>build-docker-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <imageName>${api.domain}/${api.version}</imageName>
-                    <dockerDirectory>${project.build.directory}/classes/docker</dockerDirectory>
-                    <useGitCommitId>true</useGitCommitId>
-                    <forceTags>true</forceTags>
-                    <imageTags>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <useConfigFile>true</useConfigFile>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-                <version>0.4.11</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
